@@ -1325,17 +1325,14 @@ function handleViewClick() {
 }
 
 // 2. دالة التحقق من الباسورد وفتح الملف
-function handleCheckPassword() {
-    // الباسورد والملف من الـ projectData اللي عندك
-    var passInput = document.getElementById('reportPass').value;
-    var correctPass = "14518423"; // الباسورد بتاعك
-    var fileUrl = "./assets/report.pdf"; // مسار الملف
-
-    if (passInput === correctPass) {
-        // لو صح افتح الملف
-        window.open(fileUrl, '_blank');
+function checkPassword() {
+    var password = document.getElementById("password").value;
+    if (password === "123") {
+        window.location.href = "old_report.pdf";
+    } else if (password === "456") {
+        window.location.href = "new_report.pdf";
     } else {
-        alert('كلمة السر غير صحيحة!');
+        alert("الباسورد غلط يا هندسة!");
     }
 }
 </script>
