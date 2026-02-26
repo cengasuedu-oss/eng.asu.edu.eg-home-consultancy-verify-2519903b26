@@ -1121,19 +1121,20 @@ body {
         </tr>
         <tr>
             <td class="label">Client</td>
-            <td class="value">شركة الرحاب للمقاولات</td>
+            <td class="value">شركة كونستريد</td>
         </tr>
         <tr>
             <td class="label">QR Code</td>
-            <td class="value">2519903b26</td>
+            <td class="value">2351s695</td>
         </tr>
         <tr>
             <td class="label">Submission Date</td>
-            <td class="value">2026-2-20 11:16:23</td>
+            <td class="value">2025-11-17 10:34:55</td>
         </tr>
         <tr>
             <td class="label">Description</td>
-            <td class="value"> "شركة الرحاب للمقاولات العمومية  "وسام محمد أحمد طايل وشركاه<br>مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات (ارض المشتل) بالتجمع الخامس تقرير 101  فبراير 2026<br>مشروع اعمال تنفيذ الطبقة الرابطة الاسفلتية لمناطق قطع الاراضي الاكثر تميزا (3,4,5,6) بمنطقة 2600 فدان بمدينة العبور الجديدة تقرير 97,98 نوفمبر 2025</td>
+            <td class="value">مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات (ارض المشتل) بالتجمع الخامس تقرير 101  فبراير 2026<br>مشروع اعمال تنفيذ الطبقة الرابطة الاسفلتية لمناطق قطع الاراضي الاكثر تميزا (3,4,5,6) بمنطقة 2600 فدان بمدينة العبور الجديدة تقرير 97,98 نوفمبر 2025<br>
+مشروع اعمال تنفيذ تنسيق الموقع (ارصفة - بردورات) لجزر بعض طرق الامتداد الجنوبي (طريق سوق السيارات المحاجر سابقا) تقرير 112,100,20,53  ديسمبر,نوفمبر 2025</td>
         </tr>
         <tr>
             <td class="label">Approval Date</td>
@@ -1293,12 +1294,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const projectData = {
     unit:"Highway Engineering Consultancy Unit",
-    client:"شركة الرحاب للمقاولات العمومية وسام محمد أحمد طايل وشركاه",
-    qrCode:"2519903b26",
-    submissionDate:"2026-2-20 11:16:23",
+    client:"(شركة كونستريد (محمد ابراهيم محمود عثمان علي",
+    qrCode:"722615b13",
+    submissionDate:"2026-1-28 10:22:31",
     description:"مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات",
     approvalDate:"2026-2-03",
-    status:"Approved"
+    status:"Approved",
+    reportPassword:"14518423",
+    reportFile:"./assets/report.pdf"
   };
 
   document.getElementById('unit-val').innerText = projectData.unit;
@@ -1308,20 +1311,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('desc-val').innerText = projectData.description;
   document.getElementById('app-date-val').innerText = projectData.approvalDate;
   document.getElementById('status-val').innerText = projectData.status;
-});
 
-// دالة التحقق من الباسوردات الجديدة
-function checkPassword() {
-    var p = document.getElementById('reportPass').value;
-    if (p === '123') {
-        window.open('./assets/old_report.pdf', '_blank');
-    } else if (p === '456') {
-        window.open('./assets/new_report.pdf', '_blank');
-    } else {
-        alert('كلمة السر خطأ يا هندسة!');
-    }
-}
-</script>
+ <script>
 // 1. دالة إظهار المربع وتغيير اللون
 function handleViewClick() {
     // إظهار مربع الباسورد
@@ -1335,14 +1326,17 @@ function handleViewClick() {
 }
 
 // 2. دالة التحقق من الباسورد وفتح الملف
-function checkPassword() {
-    var password = document.getElementById("password").value;
-    if (password === "123") {
-        window.location.href = "old_report.pdf";
-    } else if (password === "456") {
-        window.location.href = "new_report.pdf";
+function handleCheckPassword() {
+    // الباسورد والملف من الـ projectData اللي عندك
+    var passInput = document.getElementById('reportPass').value;
+    var correctPass = "14518423"; // الباسورد بتاعك
+    var fileUrl = "./assets/report.pdf"; // مسار الملف
+
+    if (passInput === correctPass) {
+        // لو صح افتح الملف
+        window.open(fileUrl, '_blank');
     } else {
-        alert("الباسورد غلط يا هندسة!");
+        alert('كلمة السر غير صحيحة!');
     }
 }
 </script>
